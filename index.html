@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>TicTacToe-Di</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/style.css/" />
+    <script src="https://kit.fontawesome.com/c7816c87c3.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="container-fluid form-container" id="form_container">
+      <div class="row">
+        <div
+          class="col-lg-6 col-md-6 mb-4 custom-d-flex justify-content-center align-items-center"
+        >
+          <i class="fas fa-dice-d6"></i>
+          <span class="main-head"> Tic-Tac-Toe </span>
+          <p id="funtime">
+            Have a nice and fun time! <br />
+            Hope you enjoy the best Tic-Tac-Toe.
+          </p>
+        </div>
+        <div class="col-lg-6 col-md-6 mb-4 mt-2">
+          <div class="row form-row">
+            <div class="card">
+              <div class="card-body">
+                <div class="form-group">
+                  <select
+                    name="play_mode"
+                    class="form-control"
+                    id="play_mode"
+                    required
+                  >
+                    <option value="comp">Computer "X"</option>
+                    <option value="manual" selected>Manual</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <div class="#" id="hidden_player_field">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="player_1"
+                      id="player_1"
+                      placeholder="Player 1 'X'"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="player_2"
+                    id="player_2"
+                    placeholder="Player 2 'O'"
+                    required
+                  />
+                </div>
+                <div class="form-group pb-4">
+                  <select
+                    name="no_of_grid"
+                    class="form-control"
+                    id="no_of_grid"
+                    required
+                  >
+                    <option value="3" selected>3*3 Grid</option>
+                    <option value="4">4*4 Grid</option>
+                    <option value="5">5*5 Grid</option>
+                    <option value="6">6*6 Grid</option>
+                    <option value="7">7*7 Grid</option>
+                    <option value="8">8*8 Grid</option>
+                    <option value="9">9*9 Grid</option>
+                    <option value="10">10*10 Grid</option>
+                  </select>
+                </div>
+                <div class="form-group mt-4">
+                  <button
+                    onclick="start()"
+                    id="start_btn"
+                    class="btn custom-btn"
+                  >
+                    Start Game
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container grid-container mb-4">
+      <div class="hide" id="hide_section">
+        <div class="turn mt-4 mb-3">
+          <h4>Turn : <span id="turn"></span></h4>
+        </div>
+      </div>
+      <div id="grid"></div>
+    </div>
+
+    <!-- Celebrate Button trigger modal -->
+    <button
+      type="button"
+      class="btn btn-primary hide"
+      id="celebrate_btn"
+      data-toggle="modal"
+      data-target="#celebrate"
+    >
+      Celebrate
+    </button>
+
+    <!-- Celebrate Modal -->
+    <div
+      class="modal fade"
+      id="celebrate"
+      data-backdrop="static"
+      data-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body" id="modal_content">
+            <div class="text-center">
+              <span id="game_status"></span>
+            </div>
+          </div>
+          <div class="modal-footer justify-content-center">
+            <button
+              class="btn new-game-btn"
+              onclick="newGame()"
+              data-dismiss="modal"
+            >
+              Try Again
+            </button>
+            <button class="btn new-game-btn" onclick="window.location.reload()">
+              Exit Game
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="./js/index.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
